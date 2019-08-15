@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -12,19 +8,19 @@ and open the template in the editor.
     </head>
     <body>
 
-            <form>
+        <form action="/processar-form-contato" method="post">
 
-                <label>Nome <input type="text"></label>
+            <label>Nome <input name="nome" type="text"></label>
 
-                            
-                <label>E-mail <input type="text"></label>
-                
-                <label>Duvida </label><textarea></textarea>
-                
-                <button>Enviar</button>
-                                              
-            </form>
 
-          
-</body>
+            <label>E-mail <input name="email" type="text"></label>
+
+            <label>Duvida </label><textarea name="duvida"></textarea>
+
+            <button>Enviar</button>
+
+        </form>
+
+
+    </body>
 </html>
