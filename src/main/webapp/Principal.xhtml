@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title><ui:insert name="titulo">Página principal</ui:insert>
+        </title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=2.0"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <!-- Custom styles for this template -->
+        <link href="cover.css" rel="stylesheet"/>
+    </head>
+
+    <body class="text-center">
+
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <ui:insert name="menu"> 
+                        <nav class="nav nav-masthead justify-content-center">
+                            <a href='Principal.xhtml'><h3 class="masthead-brand">Página principal</h3></a>
+                            <i style="margin-right: 30px;" /> 
+                            <a class="nav-link" href="catalago.xhtml">Catalago</a>
+                            <a class="nav-link" href="faq.xhtml">FAQ</a>
+                            <a class="nav-link" href="Contato.xhtml">Contact</a>
+                            <a class="nav-link" href="/todas-solicitacoes">Solicitações</a>
+                        </nav>
+                    </ui:insert>
+                </div>
+            </header>
+
+            <main role="main" class="inner cover">    
+
+                <p class="lead">
+
+                    <ui:insert name="conteudo"> 
+
+                        Seja muito bem vindo ao site, criado por Felipe Rodrigues Bueno.
+
+                        <p class="lead">
+                            <a href="Curriculo.pdf" class="btn btn-lg btn-secondary">Clique aqui para ver meu curriculo</a>
+                        </p>
+
+                    </ui:insert> 
+
+                </p>
+            </main>
+
+            <footer class="mastfoot mt-auto">
+                <div class="inner">
+                    <p>Um site criado | <a href="https://www.go.senac.br/faculdade/site/" target="_blank">Senac</a> | by <a href="https://www.instagram.com/feliperobueno/" target="_blank">Felipe</a>.</p>
+                </div>
+            </footer>
+        </div>
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    </body>
+    <!--<body>-->
+
+    <!--<h1 style="color: blue;  background-color: #cccccc">Página principal</h1>-->
+
+    <!--<p>Está é a página principal da nossa aplicação.</p>-->
+
+    <!--<ul>-->
+    <!--<li><a href="catalago.html"> Catalado de Produtos</a></li>-->
+    <!--<li><a href="faq.html"> FAQ</a></li>-->
+    <!--<li><a href="Contato.html"> Contato</a></li>-->
+    <!--<li><a href="/todas-solicitacoes"> Solicitações de contato</a></li>-->
+
+    <!--</ul>-->
+
+    <!--</body>-->
+</html>

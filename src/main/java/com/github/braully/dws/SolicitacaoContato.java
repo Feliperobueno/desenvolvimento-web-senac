@@ -10,10 +10,13 @@ class SolicitacaoContato {
     String nome;
     String email;
     String duvida;
+    String telefone;
+    String celular;
+    String empresa;
 
     @Override
     public String toString() {
-        return "SolicitacaoContato{" + "nome=" + nome + ", email=" + email + ", duvida=" + duvida + '}';
+        return "SolicitacaoContato{" + "nome=" + nome + ", email=" + email + "telefone=" + telefone + "Celular=" + celular + "Empresa" + empresa + "duvida=" + duvida + '}';
     }
 
 }
