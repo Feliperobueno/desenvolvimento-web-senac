@@ -3,6 +3,7 @@ package com.github.braully.dws;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class ContatoServico {
-
-    List<SolicitacaoContato> solicitacoes = new ArrayList<>();
-
+    
+    @Autowired
+    SolicitacaoContatoDAO conexao;
+    
     @RequestMapping("/processar-form-contato")
     public String recebeDadosParaContato(@RequestParam Map<String, String> todosParametros) {
         System.out.println("Entrei no metodo processar");
@@ -21,17 +23,17 @@ public class ContatoServico {
         SolicitacaoContato novaSolicitacao = new SolicitacaoContato();
         novaSolicitacao.nome = todosParametros.get("nome");
         novaSolicitacao.email = todosParametros.get("email");
-        novaSolicitacao.duvida = todosParametros.get("Telefone");
-        novaSolicitacao.duvida = todosParametros.get("Celular");
-        novaSolicitacao.duvida = todosParametros.get("Empresa");
+        novaSolicitacao.telefone = todosParametros.get("telefone");
+        novaSolicitacao.celular = todosParametros.get("celular");
+        novaSolicitacao.empresa = todosParametros.get("empresa");
         novaSolicitacao.duvida = todosParametros.get("duvida");
 
-        System.out.println("Solicitações anteriores" + solicitacoes);
+        System.out.println("Solicitações anteriores" + conexao);
         System.out.println("Nova solicitação recebida" + novaSolicitacao);
 
-        solicitacoes.add(novaSolicitacao);
+        conexao.save(novaSolicitacao);
 
-        return "redirect:/Principal.html";
+        return "redirect:/Principal.xhtml";
     }
 
     @RequestMapping("/todas-solicitacoes")
@@ -56,7 +58,7 @@ public class ContatoServico {
                 + "                <th>duvida</th>\n"
                 + "            </tr>";
 
-        for (SolicitacaoContato sol : solicitacoes) {
+        for (SolicitacaoContato sol : conexao.findAll()) {
             String linhaTabela = "<tr>";
 
             linhaTabela += "<td>";
@@ -89,7 +91,7 @@ public class ContatoServico {
         }
         html += "<tr>\n"
                 + "<td>\n"
-                + "<a href=\"/Principal.html\"> Voltar</a>"
+                + "<a href=\"/Principal.xhtml\"> Voltar</a>"
                 + "</td>\n"
                 + "</tr>\n";
         html += "       </table>\n"

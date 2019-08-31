@@ -8,42 +8,42 @@
             <h1>
                 Contato
             </h1>
-                <form action="/processar-form-contato" method="post">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email para contato"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Nome</label>
-                            <input type="text" name="nome" class="form-control" id="inputPassword4" placeholder="Nome completo"/>
-                        </div>
+            <form action="/processar-form-contato" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email para contato"/>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputTelefone">Telefone</label>
-                            <input type="text" class="form-control" id="inputTelefone" placeholder="(00) 0000-0000"/>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputCelular">Celular</label>
-                            <input type="text" class="form-control" id="inputCelular" placeholder="(00) 00000-0000"/>
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Nome</label>
+                        <input type="text" name="nome" class="form-control" placeholder="Nome completo"/>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="inputCity">Empresa</label>
-                            <input type="text" class="form-control" name="empresa"/>
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputTelefone">Telefone</label>
+                        <input type="text" name="telefone" class="form-control" placeholder="(00) 0000-0000"/>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="exampleFormControlTextarea1">Duvida</label>
-                            <textarea class="form-control" name="duvida" rows="1"></textarea>
-                        </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputCelular">Celular</label>
+                        <input type="text" name="celular" class="form-control" placeholder="(00) 00000-0000"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputCity">Empresa</label>
+                        <input type="text" name="empresa" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="exampleFormControlTextarea1">Duvida</label>
+                        <textarea class="form-control" name="duvida" rows="1"></textarea>
+                    </div>
 
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </ui:define>
-        </ui:composition>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </ui:define>
+    </ui:composition>
 </html>

@@ -5,13 +5,30 @@
  */
 package com.github.braully.dws;
 
-class SolicitacaoContato {
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+
+public class SolicitacaoContato {
+
+    @Id
+    @GeneratedValue
+    Integer id;
+
+    @Basic
     String nome;
+    @Basic
     String email;
+    @Basic
     String duvida;
+    @Basic
     String telefone;
+    @Basic
     String celular;
+    @Basic
     String empresa;
 
     @Override
