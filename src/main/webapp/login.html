@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Login</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+    </head>
+    <body>
+        <div class="container">
+            <form class="form-group" method="post" action="/login">
+                <div class="form-group col-md-6">
+                    <label for="username" class="sr-only">Usuario</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
+                    <small id="esqueceu" class="form-text text-muted">Esqueceu seu usuario? <a href="selascou.xhtml"> clique aqui. </a></small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="check">Não sou um robo</label>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
+            </form>
+        </div>
+    </body>
+</html>
