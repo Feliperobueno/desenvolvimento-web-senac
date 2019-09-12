@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/Principal.xhtml">
+        <ui:define name="titulo">login</ui:define>
+
+        <ui:define name="conteudo">
+
+            <div class="container">
+                <form class="form-group" method="post" action="/login">
+                    <div class="form-group col-md-6">
+                        <label for="username" class="sr-only">Usuario</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username" required="requered"/>
+                        <small id="esqueceu" class="form-text text-muted">Esqueceu seu usuario? <a href="selascou.xhtml"> clique aqui. </a></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Senha</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="requered"/>
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+                        <label class="form-check-label" for="check">Não sou um robo</label>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
+                </form>
+
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,9 +1,13 @@
 package com.github.braully.dws;
 
 import com.sun.faces.config.ConfigureListener;
+import static com.sun.faces.util.CollectionsUtils.map;
+import java.util.Map;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
+import static org.apache.jasper.compiler.ELFunctionMapper.map;
+import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -11,6 +15,8 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import static org.springframework.core.convert.TypeDescriptor.map;
+import static org.springframework.data.repository.util.ReactiveWrapperConverters.map;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -54,7 +60,7 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login*").permitAll()
-                .antMatchers("/login.html").permitAll()
+                .antMatchers("/login.xhtml").permitAll()
                 .antMatchers("/Principal.xhtml").permitAll()
                 .antMatchers("/Contato.xhtml").permitAll()
                 .antMatchers("/catalago.xhtml").permitAll()
@@ -62,7 +68,7 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 .antMatchers("/selascou.xhtml").permitAll()
                 .antMatchers("/todas-solicitacoes").hasRole("foda")
                 .anyRequest().authenticated().and()
-                .formLogin().loginPage("/login.html")
+                .formLogin().loginPage("/login.xhtml")
                 .loginProcessingUrl("/login")
                 .permitAll().and()
                 .logout().permitAll();
@@ -89,6 +95,15 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource datasource() {
         return DataSourceBuilder.create().build();
+    }
+
+    @Bean
+    public static CustomScopeConfigurer viewScope() {
+        CustomScopeConfigurer configurer = new CustomScopeConfigurer();
+        configurer.setScopes(
+               
+        Map.of("view", new viewScope()));
+        return configurer;
     }
 
 }
