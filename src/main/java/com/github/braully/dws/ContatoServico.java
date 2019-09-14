@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class ContatoServico {
-    
+
     @Autowired
     SolicitacaoContatoDAO conexao;
-    
+
     @RequestMapping("/processar-form-contato")
     public String recebeDadosParaContato(@RequestParam Map<String, String> todosParametros) {
         System.out.println("Entrei no metodo processar");

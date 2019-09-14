@@ -101,8 +101,7 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
     public static CustomScopeConfigurer viewScope() {
         CustomScopeConfigurer configurer = new CustomScopeConfigurer();
         configurer.setScopes(
-               
-        Map.of("view", new viewScope()));
+                Map.of("view", new ViewScope()));
         return configurer;
     }
 

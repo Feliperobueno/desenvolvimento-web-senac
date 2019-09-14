@@ -9,18 +9,18 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 @Entity
 public class grupo {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @Basic
-   String descricao;
+    String descricao;
     @Basic
-   String grupo;
-   
+    String grupo;
 
     public Long getId() {
         return id;
@@ -46,6 +46,4 @@ public class grupo {
         this.grupo = grupo;
     }
 
-
-    
 }

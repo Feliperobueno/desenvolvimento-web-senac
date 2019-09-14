@@ -19,21 +19,21 @@ import javax.persistence.ManyToMany;
  */
 @Entity
 public class Usuario {
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @Column(unique = true)
-    @Basic      
+    @Basic
     String login;
-    
+
     @Basic
     String senha;
-    
+
     @ManyToMany
     Set<grupo> gruposUsuario;
-    
+
     public String getLogin() {
         return login;
     }
@@ -49,7 +49,7 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -58,5 +58,4 @@ public class Usuario {
         this.id = id;
     }
 
-    
 }

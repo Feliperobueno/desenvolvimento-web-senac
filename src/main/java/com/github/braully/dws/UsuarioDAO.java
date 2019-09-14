@@ -11,8 +11,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Aluno
  */
-public interface UsuarioDAO extends CrudRepository<Usuario, Long>  {
-    
-    
-    
+public interface UsuarioDAO extends CrudRepository<Usuario, Long> {
+
 }
