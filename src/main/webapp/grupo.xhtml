@@ -7,21 +7,22 @@
 
         <ui:define name="conteudo">
             <h:form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">  
-                        <label>Login</label>
-                        <h:inputText class="form-control" value ="#{grupoMB.grupo.descricao}">
-                            <f:validateRequire />
-                        </h:inputText>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Senha</label>
-                        <h:inputSecret class="form-control" value = "#{grupoMB.grupo.grupo}"/>
-                    </div>
 
+                <div class="form-group col-md-12">  
+                    <label>Grupo</label>
+                    <h:inputText class="form-control" name="grupo" value ="#{grupoMB.grupo.grupo}">
+                    </h:inputText>
                 </div>
-                <button class="btn btn-dark" action="#{grupoMB.salvarGrupo()}" jsf="h:commandButton" value="Salvar">Salvar</button>
+                
+                <div class="form-group col-md-12">  
+                    <label>Descrição</label>
+                    <h:inputText class="form-control" name="descricao" value ="#{grupoMB.grupo.descricao}">
+                    </h:inputText>
+                </div>
 
+                <div class="container">
+                    <button class="btn btn-dark" action="#{grupoMB.salvarGrupo()}" jsf="h:commandButton" value="Salvar">Salvar</button>
+                </div>
             </h:form>
         </ui:define>
 

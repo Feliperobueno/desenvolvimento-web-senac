@@ -32,7 +32,7 @@ public class Usuario {
     String senha;
 
     @ManyToMany
-    Set<grupo> gruposUsuario;
+    Set<Grupo> gruposUsuario;
 
     public String getLogin() {
         return login;
@@ -57,5 +57,9 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
-
+void adicionaGrupo(Grupo k){
+    if (this.gruposUsuario)== null {
+    
+}
+}
 }

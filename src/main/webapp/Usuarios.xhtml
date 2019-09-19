@@ -24,6 +24,25 @@
                         <h:inputSecret class="form-control" value = "#{usuarioMB.usuario.senha}"/>
                     </div>
 
+                    <p>Selecione o seu tipo de usuario:</p>
+                    <div>
+
+                        <BR/>
+                        <label for="sel1">Selecione apenas 1</label>
+                        <select multiple="multiple" 
+                                value="#{usuarioMB.grupoSelecionado}"
+                                jsfc="h:selectManyListbox"
+                                class="form-control col-md-12" id="sel1">
+
+                                <f:selectItems value="#{grupoMB.listaGrupos}"
+                                               var="grp" itemvalue="#{grp.id}"
+                                               itemLabel="#{grp.grupo}"/>
+
+                        </select>
+
+                    </div>
+                    <br/>
+
                 </div>
                 <h:commandButton class="btn btn-dark" action="#{usuarioMB.salvarUsuario()}" value="Salvar"/>
 
