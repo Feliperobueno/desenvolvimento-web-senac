@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.github.braully.dws;
 
 import java.util.Map;
@@ -10,12 +5,7 @@ import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 
-/**
- *
- * @author Aluno
- */
-public class viewScope implements Scope{
-  
+public class viewScope implements Scope {
 
     @Override
     public Object get(String name, ObjectFactory<?> objectFactory) {
@@ -51,4 +41,3 @@ public class viewScope implements Scope{
     }
 
 }
-

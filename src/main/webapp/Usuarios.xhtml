@@ -30,12 +30,12 @@
                         <BR/>
                         <label for="sel1">Selecione apenas 1</label>
                         <select multiple="multiple" 
-                                value="#{usuarioMB.grupoSelecionado}"
+                                value="#{usuarioMB.gruposSelecionados}"
                                 jsfc="h:selectManyListbox"
                                 class="form-control col-md-12" id="sel1">
 
                                 <f:selectItems value="#{grupoMB.listaGrupos}"
-                                               var="grp" itemvalue="#{grp.id}"
+                                               var="grp" itemValue="#{grp.id}"
                                                itemLabel="#{grp.grupo}"/>
 
                         </select>

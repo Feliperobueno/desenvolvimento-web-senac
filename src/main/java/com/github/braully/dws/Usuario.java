@@ -5,6 +5,7 @@
  */
 package com.github.braully.dws;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -57,9 +58,11 @@ public class Usuario {
     public void setId(Long id) {
         this.id = id;
     }
-void adicionaGrupo(Grupo k){
-    if (this.gruposUsuario)== null {
-    
+    void adicionaGrupo(Grupo k) {
+        if (this.gruposUsuario == null) {
+            this.gruposUsuario = new HashSet<>();
+        }
+        this.gruposUsuario.add(k);
 }
 }
-}
+
