@@ -1,8 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.github.braully.dws;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -13,63 +16,32 @@ import org.springframework.stereotype.Component;
 @Scope("view")
 @Component
 public class UsuarioMB {
-    
+
     @Autowired
     UsuarioDAO usuarioDAO;
-    
-    @Autowired
-    GrupoDAO grupoDAO;
-    
+
     Usuario usuario = new Usuario();
-    
+
     public Usuario getUsuario() {
         return usuario;
     }
-    
-    public void salvarUsuario() {
-        //gruposSelecionados.forEach((k,v) -> {if(v) usuario.adicionaGrupo(k);});
 
-//        for (Grupo g : gruposSelecionados.keySet()) {
-//            Boolean selct = gruposSelecionados.get(g);
-//            if (selct) {
-//                usuario.adicionaGrupo(g);
-//            }
-//        }
-        for (String id : gruposSelecionados) {
-            Grupo g = grupoDAO.findById(Long.parseLong(id)).get();
-            usuario.adicionaGrupo(g);
-        }
-        
+for(String id : grupoSelecionado){
+    grupo g = grupoDAO.findById(Long.parseLong(id)).get();
+    usuario.adicionarGrupo(g);
         usuarioDAO.save(usuario);
-        FacesContext.getCurrentInstance()
-                .addMessage(null, new FacesMessage("Usuário salvo com sucesso"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario salvo com sucesso."));
+
         usuario = new Usuario();
     }
-    
-    List<Grupo> listaGrupos;
-    
-    public List<Grupo> getListaGrupos() {
-        if (listaGrupos == null) {
-            listaGrupos = new ArrayList<>();
-            for (Grupo g : grupoDAO.findAll()) {
-                listaGrupos.add(g);
-            }
-        }
-        return listaGrupos;
+    String [] grupoSelecionado;
+public String [] getGrupoSelecionado(){
+    return grupoSelecionado;
+}
+
+    public void setGrupoSelecionado(String[] grupoSelecionado) {
+        this.grupoSelecionado = grupoSelecionado;
     }
 
-//    Map<Grupo, Boolean> gruposSelecionados = new HashMap<>();
-//
-//    public Map<Grupo, Boolean> getGruposSelecionados() {
-//        return gruposSelecionados;
-//    }
-    String[] gruposSelecionados;
-    
-    public String[] getGruposSelecionados() {
-        return gruposSelecionados;
-    }
-    
-    public void setGruposSelecionados(String[] gruposSelecionados) {
-        this.gruposSelecionados = gruposSelecionados;
-    }
+
 }

@@ -7,7 +7,6 @@ import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 import static org.apache.jasper.compiler.ELFunctionMapper.map;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +17,6 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import static org.springframework.core.convert.TypeDescriptor.map;
 import static org.springframework.data.repository.util.ReactiveWrapperConverters.map;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -41,20 +39,8 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        //return new BCryptPasswordEncoder();
-        return new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence cs) {
-                return cs.toString();
-            }
-
-            @Override
-            public boolean matches(CharSequence cs, String string) {
-                return cs.toString().equals(string);
-            }
-        };
+        return new BCryptPasswordEncoder();
     }
-    
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -66,18 +52,6 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
                 .password(passwordEncoder().encode("net"))
                 .roles("foda", "fodaoS+").build();
         return new InMemoryUserDetailsManager(user, admin);
-    }
- @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(datasource())
-                .usersByUsernameQuery(
-                        "select login as username, senha as password, true as enabled from usuario where login=?")
-                .authoritiesByUsernameQuery(
-                        "select login as username, g.grupo as role "
-                        + "from grupo g"
-                        + " inner join usuario_grupos_usuario ug on ug.grupos_usuario_id = g.id"
-                        + " inner join usuario u on ug.usuario_id = u.id "
-                        + "where login=?");
     }
 
     @Override
@@ -131,5 +105,4 @@ public class AplicacaoWeb extends WebSecurityConfigurerAdapter implements Servle
         return configurer;
     }
 
-    
 }
